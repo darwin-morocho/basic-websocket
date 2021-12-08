@@ -10,7 +10,7 @@ $(function () {
     const $usernameInput = $('.usernameInput'); // Input for username
     const $button = $('#join');          // The chatroom page
 
-    const socket = new WebSocket("ws://meeduws.herokuapp.com");
+    const socket = new WebSocket("wss://meeduws.herokuapp.com");
 
     let username = "";
     let connected = false;
