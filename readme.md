@@ -57,7 +57,7 @@ ws host `wss://meeduws.herokuapp.com`
   "event": "new_message",
   "data": {
     "user": "dash",
-    "data": "your text"
+    "message": "your text"
   }
 }
 ```
