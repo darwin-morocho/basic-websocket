@@ -1,10 +1,8 @@
 # A simple websocket for flutter_meedu
 
-
 web: https://meeduws.herokuapp.com/
 
 ws host `wss://meeduws.herokuapp.com`
-
 
 ## messages
 
@@ -12,33 +10,76 @@ ws host `wss://meeduws.herokuapp.com`
 
 ```json
 {
-    "event": "join",
-    "data:": "your_username"
+  "event": "join",
+  "data:": "your_username"
 }
 ```
 
+`username_not_available` when the entered username was taken.
+
 `joined` when you are into the chat and, then you will be recive the next json as a string
+
 ```json
 {
-    "event": "joined",
-    "users": [ "darwin", "dash" ]
+  "event": "joined",
+  "users": ["darwin", "dash"]
 }
 ```
 
 `new_user` when a new user is into the chat and, then you will be recive the next json as a string
+
 ```json
 {
-    "event": "new_user",
+  "event": "new_user",
+  "data": {
     "user": "dash",
-    "users": [ "darwin", "dash" ]
+    "users": ["darwin", "dash"]
+  }
 }
 ```
 
-`new_user` when one user has left the chat and, then you will be recive the next json as a string
+`left` when one user has left the chat and, then you will be recive the next json as a string
+
 ```json
 {
-    "event": "left",
+  "event": "left",
+  "data": {
     "user": "dash",
-    "users": [ "darwin" ]
+    "users": ["darwin"]
+  }
+}
+```
+
+`new_message` when we have a new message
+
+```json
+{
+  "event": "new_message",
+  "data": {
+    "user": "dash",
+    "data": "your text"
+  }
+}
+```
+
+`typing` when a user is typing a message in the chat
+
+```json
+{
+  "event": "typing",
+  "data": {
+    "user": "dash"
+  }
+}
+```
+
+`stop_typing` when a user has stopped typing a message in the chat
+
+```json
+{
+  "event": "stop_typing",
+  "data": {
+    "user": "dash"
+  }
 }
 ```
