@@ -33,11 +33,14 @@ wss.on('connection', (ws) => {
     try {
       const { event, data } = JSON.parse(message);
       if (event === 'join') {
-        username = data as string;
-        if (!users.includes(username)) {
+        const tmpUsername = data as string;
+        const isTaken = users.includes(tmpUsername);
+        console.log(`is taken ${tmpUsername}`, isTaken);
+        if (!isTaken) {
+          username = tmpUsername;
           ws.send(JSON.stringify({ event: 'joined', data: { users } }));
-          users.push(username);
           sendToAll('new_user', { users, user: username });
+          users.push(username);
         } else {
           ws.send('username_not_available');
         }
@@ -62,6 +65,7 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => {
     if (username !== null) {
+      console.log('leave', username);
       users = users.filter((e) => e !== username);
       /// broadcasting to every other connected WebSocket clients, excluding itself.
       sendToAll('left', { users, user: username });
