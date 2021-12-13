@@ -67,9 +67,7 @@ ws host `wss://meeduws.herokuapp.com`
 ```json
 {
   "event": "typing",
-  "data": {
-    "user": "dash"
-  }
+  "data": ""
 }
 ```
 
@@ -78,8 +76,6 @@ ws host `wss://meeduws.herokuapp.com`
 ```json
 {
   "event": "stop_typing",
-  "data": {
-    "user": "dash"
-  }
+  "data": ""
 }
 ```
