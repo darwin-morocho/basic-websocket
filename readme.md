@@ -1,6 +1,6 @@
 # A simple websocket for flutter_meedu
 
-web: https://meeduws.herokuapp.com/
+web: https://meedu-chat.web.app
 
 ws host `wss://meeduws.herokuapp.com`
 
